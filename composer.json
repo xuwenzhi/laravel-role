@@ -1,0 +1,36 @@
+{
+    "name": "xuwenzhi/laravel-role",
+    "description": "A authorization package for Laravel5.2+.",
+    "type": "composer",
+    "require": {
+        "laravel/laravel": "5.2.*",
+        "php": ">=5.5.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xuwenzhi",
+            "email": "xuwenzhi7@gmail.com"
+        }
+    ],
+
+
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Laraveldaily\\Timezones\\": "packages/laraveldaily/timezones/src"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Xuwenzhi\\LaraRole\\": "Packages/laravel-role"
+        }
+    },
+    "minimum-stability": "dev"
+}

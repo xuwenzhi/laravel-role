@@ -44,7 +44,5 @@ class LaraRoleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/role.php', 'demo-config');
-        include __DIR__.'/routes.php';
-        $this->app->make('Laraveldaily\Timezones\TimezonesController');
     }
 }
