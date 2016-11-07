@@ -16,10 +16,14 @@ class LaraRoleServiceProvider extends ServiceProvider
         // Loading routes file
         require __DIR__ . '/routes.php';
 
-        $this->loadViewsFrom(__DIR__ . '/views', 'demo-todo');
-
+        $this->loadViewsFrom(__DIR__ . '/views', 'list');
         $this->publishes([
-            __DIR__ . '/views' => resource_path('views/vendor/demo-todo')
+            __DIR__ . '/views' => resource_path('views/role/list')
+        ]);
+
+        $this->loadViewsFrom(__DIR__ . '/views', 'edit');
+        $this->publishes([
+            __DIR__ . '/views' => resource_path('views/role/edit')
         ]);
 
         $this->publishes([
@@ -27,7 +31,8 @@ class LaraRoleServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__ . '/migrations/2016_08_30_100528_create_todos_table.php' => base_path('database/migrations/2016_08_30_100528_create_todos_table.php')
+            __DIR__ . '/migrations/2016_11_06_143945_create_role_group.php' => base_path('database/migrations/2016_11_06_143945_create_role_group.php'),
+            __DIR__ . '/migrations/2016_11_06_144127_create_role_users.php' => base_path('database/migrations/2016_11_06_144127_create_role_users.php.php'),
         ], '');
     }
 
@@ -38,6 +43,8 @@ class LaraRoleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/demo-config.php', 'demo-config');
+        $this->mergeConfigFrom(__DIR__ . '/config/role.php', 'demo-config');
+        include __DIR__.'/routes.php';
+        $this->app->make('Laraveldaily\Timezones\TimezonesController');
     }
 }
